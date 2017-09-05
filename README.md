@@ -34,6 +34,11 @@ This project demonstrates a RESTful web service that allows managing two entitie
       }]
       ````
 
+API Reference.
+-----------------
+The API reference is available at [API Reference](http://htmlpreview.github.io/?https://github.com/omersalar/Rest-Demo/blob/master/target/generated-docs/APIDocumentation.html). The documenatation was prepared using Spring RestDocs.
+
+
 Try it out
 ----------
 You may see the API in action by clickling on the below links.
@@ -62,11 +67,6 @@ You may see the API in action by clickling on the below links.
     
    <http://ec2-52-35-143-209.us-west-2.compute.amazonaws.com:8080/messages?senderId=1260&receiverId=1262>
     
-
-API Reference.
------------------
-The API reference is available at [API Reference](http://htmlpreview.github.io/?https://github.com/omersalar/Rest-Demo/blob/master/target/generated-docs/APIDocumentation.html). The documenatation was prepared using Spring RestDocs.
-
 
 
 How this web-service was developed.
