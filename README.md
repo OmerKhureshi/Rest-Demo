@@ -34,6 +34,35 @@ This project demonstrates a RESTful web service that allows managing two entitie
       }]
       ````
 
+Try it out
+----------
+You may see the API in action by clickling on the below links.
+
+`GET /messages`
+    
+   <http://ec2-52-35-143-209.us-west-2.compute.amazonaws.com:8080/messages>
+   
+   
+`GET /messages/messageId`
+    
+   <http://ec2-52-35-143-209.us-west-2.compute.amazonaws.com:8080/messages/850>
+   
+   
+`GET /messages?senderId=:senderId`
+    
+   <http://ec2-52-35-143-209.us-west-2.compute.amazonaws.com:8080/messages?senderId=1260>
+    
+
+`GET /messages?receiverId=:receiverId`
+    
+   <http://ec2-52-35-143-209.us-west-2.compute.amazonaws.com:8080/messages?receiverId=1262>
+   
+       
+`GET /messages?senderId=:senderId&receiverId=:receiverId`
+    
+   <http://ec2-52-35-143-209.us-west-2.compute.amazonaws.com:8080/messages?senderId=1260&receiverId=1262>
+    
+
 API Reference.
 -----------------
 The API reference is available at [API Reference](http://htmlpreview.github.io/?https://github.com/omersalar/Rest-Demo/blob/master/target/generated-docs/APIDocumentation.html). The documenatation was prepared using Spring RestDocs.
