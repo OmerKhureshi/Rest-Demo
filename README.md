@@ -34,15 +34,18 @@ This project demonstrates a RESTful web service that allows managing two entitie
       }]
       ````
 
+API Reference.
+-----------------
+The API reference is available at [API Reference](http://htmlpreview.github.io/?https://github.com/omersalar/Rest-Demo/blob/master/target/generated-docs/APIDocumentation.html). The documenatation was prepared using Spring RestDocs.
+
+
+
 How this web-service was developed.
 -----------------------------------
 This project was developed using Java and Spring framework. The Spring libraries used are Boot, Data JPA, MVC/Web, HATEOAS, Test, RestDocs.
 
 The jar is deployed on AWS EC2 instance and uses RDS for storing the data.
 
-API Reference.
------------------
-The API reference is available at [API Reference](http://htmlpreview.github.io/?https://github.com/omersalar/Rest-Demo/blob/master/target/generated-docs/APIDocumentation.html). The documenatation was prepared using Spring RestDocs.
 
-
-:thumbsup: :heart: :clap:
+- - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - -- - - - - - - - - - - - -- - - - - - - - - - - 
+<p align="center">:thumbsup: :heart: :clap:</p>
