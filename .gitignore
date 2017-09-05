@@ -1,0 +1,19 @@
+!.mvn/wrapper/maven-wrapper.jar
+
+### generated documentation ###
+target/*
+!target/generated-docs
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr

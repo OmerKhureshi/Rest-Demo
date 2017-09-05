@@ -1,0 +1,355 @@
+:table-caption!:
+:toc: right
+:toclevels: 4
+:sectnums:
+:sectnumlevels: 5
+
+= RestDemo - RESTful  messenger web service.
+
+== Introduction
+This project demonstrates a web service to serve as provider for a basic messenger application. The end points allow GET and POST verbs to manage person and message entities. In addition, helpful queries can also be executed such as listed below.
+1. Get list of messages by specifying sender, receiver or both.
+2. Uses Spring HATEOS to provide useful links to navigate to related resources.
+
+//In this project, there are two entities, Person and Message, as described below.
+//=== Person
+//.Entities
+//|===
+//|Field |Description
+//
+//|id
+//|Unique identifier for a person. Id is auto-generated
+//
+//|firstName
+//|A person's first name.
+//
+//|lastName
+//|A person's last name.
+//|===
+//
+//=== Message
+//.Entities
+//|===
+//|Field |Description
+//
+//|id
+//|Unique identifier for a person. Id is auto-generated
+//
+//|sender
+//|Ref to person who sent the message.
+//
+//|receiver
+//|Ref to person who received the message.
+//
+//|messageDesc
+//|The textual message.
+//|===
+
+== API Documentation
+
+=== Person
+
+////
+GET SINGLE PERSON
+////
+
+==== Get single persons
+`GET /persons/:id`
+
+Gets a single person from database identified by id.
+
+===== Request Structure
+.URL parameters
+include::{snippets}/test-get-person/path-parameters.adoc[]
+
+===== Response Structure
+include::{snippets}/test-get-person/response-fields.adoc[]
+
+.hypermedia links
+include::{snippets}/test-get-person/links.adoc[]
+
+.example JSON person object in response.
+include::{snippets}/test-get-person/response-body.adoc[]
+
+===== Example request/response
+.curl
+include::{snippets}/test-get-person/curl-request.adoc[]
+
+.HTTPie
+include::{snippets}/test-get-person/httpie-request.adoc[]
+
+.request
+include::{snippets}/test-get-person/http-request.adoc[]
+
+.response
+include::{snippets}/test-get-person/http-response.adoc[]
+
+
+////
+GET ALL PERSON
+////
+
+==== Get all persons
+
+`GET /persons`
+
+Gets list of persons from database.
+
+===== Response Structure
+.example JSON person object in response.
+include::{snippets}/test-get-persons/response-body.adoc[]
+
+===== Example request/response
+.curl
+include::{snippets}/test-get-persons/curl-request.adoc[]
+
+.HTTPie
+include::{snippets}/test-get-persons/httpie-request.adoc[]
+
+.request
+include::{snippets}/test-get-persons/http-request.adoc[]
+
+.response
+include::{snippets}/test-get-persons/http-response.adoc[]
+
+
+////
+CREATE PERSON
+////
+
+==== Create persons
+`POST /persons`
+
+Creates a new person from the person object sent in the request.
+
+===== Request Structure
+include::{snippets}/test-create-person/request-fields.adoc[]
+
+.example JSON person object in request.
+include::{snippets}/test-create-person/request-body.adoc[]
+
+===== Response Structure
+include::{snippets}/test-create-person/response-fields.adoc[]
+
+.hypermedia links
+include::{snippets}/test-create-person/links.adoc[]
+
+.example JSON person object in response.
+include::{snippets}/test-create-person/response-body.adoc[]
+
+===== Example request/response
+.curl
+include::{snippets}/test-create-person/curl-request.adoc[]
+
+.HTTPie
+include::{snippets}/test-create-person/httpie-request.adoc[]
+
+.request
+include::{snippets}/test-create-person/http-request.adoc[]
+
+.response
+include::{snippets}/test-create-person/http-response.adoc[]
+
+
+=== Message
+
+////
+GET SINGLE MESSAGE
+////
+
+==== Get single message
+`GET /messages/:id`
+
+Gets a single message from database identified by id.
+
+===== Request Structure
+.URL parameters
+include::{snippets}/test-get-message/path-parameters.adoc[]
+
+===== Response Structure
+include::{snippets}/test-get-message/response-fields.adoc[]
+
+.hypermedia links
+include::{snippets}/test-get-message/links.adoc[]
+
+.example JSON message object in response.
+include::{snippets}/test-get-message/response-body.adoc[]
+
+===== Example request/response
+.curl
+include::{snippets}/test-get-message/curl-request.adoc[]
+
+.HTTPie
+include::{snippets}/test-get-message/httpie-request.adoc[]
+
+.request
+include::{snippets}/test-get-message/http-request.adoc[]
+
+.response
+include::{snippets}/test-get-message/http-response.adoc[]
+
+
+////
+CREATE SINGLE MESSAGE
+////
+
+==== Create message
+`POST /messages`
+
+Creates a new message from the message object sent in the request.
+
+===== Request Structure
+include::{snippets}/test-create-message/request-fields.adoc[]
+
+.example JSON message object in request.
+include::{snippets}/test-create-message/request-body.adoc[]
+
+===== Response Structure
+include::{snippets}/test-create-message/response-fields.adoc[]
+
+.hypermedia links
+include::{snippets}/test-create-message/links.adoc[]
+
+.example JSON message object in response.
+include::{snippets}/test-create-message/response-body.adoc[]
+
+===== Example request/response
+.curl
+include::{snippets}/test-create-message/curl-request.adoc[]
+
+.HTTPie
+include::{snippets}/test-create-message/httpie-request.adoc[]
+
+.request
+include::{snippets}/test-create-message/http-request.adoc[]
+
+.response
+include::{snippets}/test-create-message/http-response.adoc[]
+
+
+////
+GET ALL MESSAGE
+////
+
+==== Get all messages
+`GET /messages`
+
+Gets list of messages from database.
+
+===== Response Structure
+.example JSON person object in response.
+include::{snippets}/test-get-messages/response-body.adoc[]
+
+===== Example request/response
+.curl
+include::{snippets}/test-get-messages/curl-request.adoc[]
+
+.HTTPie
+include::{snippets}/test-get-messages/httpie-request.adoc[]
+
+.request
+include::{snippets}/test-get-messages/http-request.adoc[]
+
+.response
+include::{snippets}/test-get-messages/http-response.adoc[]
+
+
+////
+GET MESSAGES FROM SENT BY PERSON
+////
+
+==== Get all messages sent by a person
+`GET /messages?senderId=:senderId`
+
+Gets a list of messages that are sent by a person identified by a sender's id.
+
+===== Request Structure
+.URL parameters
+include::{snippets}/test-get-messages-from/request-parameters.adoc[]
+
+===== Response Structure
+
+.example JSON message object in response.
+include::{snippets}/test-get-messages-from/response-body.adoc[]
+
+===== Example request/response
+.curl
+include::{snippets}/test-get-messages-from/curl-request.adoc[]
+
+.HTTPie
+include::{snippets}/test-get-messages-from/httpie-request.adoc[]
+
+.request
+include::{snippets}/test-get-messages-from/http-request.adoc[]
+
+.response
+include::{snippets}/test-get-messages-from/http-response.adoc[]
+
+
+////
+GET MESSAGES FROM RECEIVED BY PERSON
+////
+
+==== Get all messages received by a person
+
+`GET /messages?receiverId=:receiverId`
+
+Gets a list of messages that are received by a person identified by a receiver's id.
+
+===== Request Structure
+.URL parameters
+include::{snippets}/test-get-messages-to/request-parameters.adoc[]
+
+===== Response Structure
+
+.example JSON message object in response.
+include::{snippets}/test-get-messages-to/response-body.adoc[]
+
+===== Example request/response
+.curl
+include::{snippets}/test-get-messages-to/curl-request.adoc[]
+
+.HTTPie
+include::{snippets}/test-get-messages-to/httpie-request.adoc[]
+
+.request
+include::{snippets}/test-get-messages-to/http-request.adoc[]
+
+.response
+include::{snippets}/test-get-messages-to/http-response.adoc[]
+
+
+////
+GET MESSAGES FROM SENT BY ONE PERSON AND RECEIVED BY ANOTHER PERSON
+////
+
+==== Get all messages sent from one person to another.
+
+`GET /messages?senderId=:senderId&receiverId=:receiverId`
+
+Gets a list of messages that are sent by a person (identified by a sender's id) to another person (identified by a receiver's id).
+
+===== Request Structure
+.URL parameters
+include::{snippets}/test-get-messages-from-and-to/request-parameters.adoc[]
+
+===== Response Structure
+
+.example JSON message object in response.
+include::{snippets}/test-get-messages-from-and-to/response-body.adoc[]
+
+===== Example request/response
+.curl
+include::{snippets}/test-get-messages-from-and-to/curl-request.adoc[]
+
+.HTTPie
+include::{snippets}/test-get-messages-from-and-to/httpie-request.adoc[]
+
+.request
+include::{snippets}/test-get-messages-from-and-to/http-request.adoc[]
+
+.response
+include::{snippets}/test-get-messages-from-and-to/http-response.adoc[]
+
+
+
