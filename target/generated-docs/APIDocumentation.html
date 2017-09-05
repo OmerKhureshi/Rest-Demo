@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<title>RestDemo - RESTful  messenger web service.</title>
+<title>API Reference</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -420,7 +420,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-right">
 <div id="header">
-<h1>RestDemo - RESTful  messenger web service.</h1>
+<h1>API Reference</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -506,9 +506,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This project demonstrates a web service to serve as provider for a basic messenger application. The end points allow GET and POST verbs to manage person and message entities. In addition, helpful queries can also be executed such as listed below.
-1. Get list of messages by specifying sender, receiver or both.
-2. Uses Spring HATEOS to provide useful links to navigate to related resources.</p>
+<p>This project demonstrates a RESTful web service that allows managing two entities, a Person entity and a Message entity. A person can be the sender of a message or the receiver. The web service exposes end-points that allow clients to use GET and POST requests to manage these entities. In addition, there are other helpful queries that provide easier access to Person and Message entities such as the those listed below,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get a list of messages by specifying a sender, a receiver or both</p>
+</li>
+<li>
+<p>Get back useful links in the response JSON to navigate to related resources, such as - get a link to the related person resources in the response of the GET /messages request.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -622,19 +630,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre class="highlight nowrap"><code>{
   "person" : {
-    "id" : 1220,
+    "id" : 1260,
     "firstName" : "syed",
     "lastName" : "khureshi"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1220"
+    "href" : "http://localhost:8080/persons/1260"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1220"
+    "href" : "http://localhost:8080/messages?senderId=1260"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1220"
+    "href" : "http://localhost:8080/messages?receiverId=1260"
   } ]
 }</code></pre>
 </div>
@@ -645,19 +653,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">curl</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/persons/1220/' -i</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/persons/1260/' -i</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">HTTPie</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/persons/1220/'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/persons/1260/'</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /persons/1220/ HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /persons/1260/ HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -670,19 +678,19 @@ Content-Length: 378
 
 {
   "person" : {
-    "id" : 1220,
+    "id" : 1260,
     "firstName" : "syed",
     "lastName" : "khureshi"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1220"
+    "href" : "http://localhost:8080/persons/1260"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1220"
+    "href" : "http://localhost:8080/messages?senderId=1260"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1220"
+    "href" : "http://localhost:8080/messages?receiverId=1260"
   } ]
 }</code></pre>
 </div>
@@ -704,67 +712,67 @@ Content-Length: 378
 <div class="content">
 <pre class="highlight nowrap"><code>[ {
   "person" : {
-    "id" : 1196,
+    "id" : 1236,
     "firstName" : "syed",
     "lastName" : "khureshi"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1196"
+    "href" : "http://localhost:8080/persons/1236"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1196"
+    "href" : "http://localhost:8080/messages?senderId=1236"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1196"
+    "href" : "http://localhost:8080/messages?receiverId=1236"
   } ]
 }, {
   "person" : {
-    "id" : 1197,
+    "id" : 1237,
     "firstName" : "omer",
     "lastName" : "salar"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1197"
+    "href" : "http://localhost:8080/persons/1237"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1197"
+    "href" : "http://localhost:8080/messages?senderId=1237"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1197"
+    "href" : "http://localhost:8080/messages?receiverId=1237"
   } ]
 }, {
   "person" : {
-    "id" : 1198,
+    "id" : 1238,
     "firstName" : "Sai",
     "lastName" : "Undurthi"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1198"
+    "href" : "http://localhost:8080/persons/1238"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1198"
+    "href" : "http://localhost:8080/messages?senderId=1238"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1198"
+    "href" : "http://localhost:8080/messages?receiverId=1238"
   } ]
 }, {
   "person" : {
-    "id" : 1199,
+    "id" : 1239,
     "firstName" : "Anshul",
     "lastName" : "Vyas"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1199"
+    "href" : "http://localhost:8080/persons/1239"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1199"
+    "href" : "http://localhost:8080/messages?senderId=1239"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1199"
+    "href" : "http://localhost:8080/messages?receiverId=1239"
   } ]
 } ]</code></pre>
 </div>
@@ -800,67 +808,67 @@ Content-Length: 1516
 
 [ {
   "person" : {
-    "id" : 1196,
+    "id" : 1236,
     "firstName" : "syed",
     "lastName" : "khureshi"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1196"
+    "href" : "http://localhost:8080/persons/1236"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1196"
+    "href" : "http://localhost:8080/messages?senderId=1236"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1196"
+    "href" : "http://localhost:8080/messages?receiverId=1236"
   } ]
 }, {
   "person" : {
-    "id" : 1197,
+    "id" : 1237,
     "firstName" : "omer",
     "lastName" : "salar"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1197"
+    "href" : "http://localhost:8080/persons/1237"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1197"
+    "href" : "http://localhost:8080/messages?senderId=1237"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1197"
+    "href" : "http://localhost:8080/messages?receiverId=1237"
   } ]
 }, {
   "person" : {
-    "id" : 1198,
+    "id" : 1238,
     "firstName" : "Sai",
     "lastName" : "Undurthi"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1198"
+    "href" : "http://localhost:8080/persons/1238"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1198"
+    "href" : "http://localhost:8080/messages?senderId=1238"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1198"
+    "href" : "http://localhost:8080/messages?receiverId=1238"
   } ]
 }, {
   "person" : {
-    "id" : 1199,
+    "id" : 1239,
     "firstName" : "Anshul",
     "lastName" : "Vyas"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1199"
+    "href" : "http://localhost:8080/persons/1239"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1199"
+    "href" : "http://localhost:8080/messages?senderId=1239"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1199"
+    "href" : "http://localhost:8080/messages?receiverId=1239"
   } ]
 } ]</code></pre>
 </div>
@@ -994,19 +1002,19 @@ Content-Length: 1516
 <div class="content">
 <pre class="highlight nowrap"><code>{
   "person" : {
-    "id" : 1195,
+    "id" : 1235,
     "firstName" : "person",
     "lastName" : "human"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1195"
+    "href" : "http://localhost:8080/persons/1235"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1195"
+    "href" : "http://localhost:8080/messages?senderId=1235"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1195"
+    "href" : "http://localhost:8080/messages?receiverId=1235"
   } ]
 }</code></pre>
 </div>
@@ -1061,19 +1069,19 @@ Content-Length: 377
 
 {
   "person" : {
-    "id" : 1195,
+    "id" : 1235,
     "firstName" : "person",
     "lastName" : "human"
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/persons/1195"
+    "href" : "http://localhost:8080/persons/1235"
   }, {
     "rel" : "from-messages",
-    "href" : "http://localhost:8080/messages?senderId=1195"
+    "href" : "http://localhost:8080/messages?senderId=1235"
   }, {
     "rel" : "to-messages",
-    "href" : "http://localhost:8080/messages?receiverId=1195"
+    "href" : "http://localhost:8080/messages?receiverId=1235"
   } ]
 }</code></pre>
 </div>
@@ -1193,14 +1201,14 @@ Content-Length: 377
 <div class="content">
 <pre class="highlight nowrap"><code>{
   "message" : {
-    "id" : 823,
+    "id" : 848,
     "sender" : {
-      "id" : 1216,
+      "id" : 1256,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1218,
+      "id" : 1258,
       "firstName" : "Sai",
       "lastName" : "Undurthi"
     },
@@ -1208,13 +1216,13 @@ Content-Length: 377
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/823"
+    "href" : "http://localhost:8080/messages/848"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1216"
+    "href" : "http://localhost:8080/persons/1256"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1218"
+    "href" : "http://localhost:8080/persons/1258"
   } ]
 }</code></pre>
 </div>
@@ -1225,19 +1233,19 @@ Content-Length: 377
 <div class="listingblock">
 <div class="title">curl</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/messages/823' -i</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/messages/848' -i</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">HTTPie</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/messages/823'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/messages/848'</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /messages/823 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /messages/848 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1250,14 +1258,14 @@ Content-Length: 537
 
 {
   "message" : {
-    "id" : 823,
+    "id" : 848,
     "sender" : {
-      "id" : 1216,
+      "id" : 1256,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1218,
+      "id" : 1258,
       "firstName" : "Sai",
       "lastName" : "Undurthi"
     },
@@ -1265,13 +1273,13 @@ Content-Length: 537
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/823"
+    "href" : "http://localhost:8080/messages/848"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1216"
+    "href" : "http://localhost:8080/persons/1256"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1218"
+    "href" : "http://localhost:8080/persons/1258"
   } ]
 }</code></pre>
 </div>
@@ -1360,12 +1368,12 @@ Content-Length: 537
 <pre class="highlight nowrap"><code>{
   "id" : null,
   "sender" : {
-    "id" : 1208,
+    "id" : 1248,
     "firstName" : "syed",
     "lastName" : "khureshi"
   },
   "receiver" : {
-    "id" : 1211,
+    "id" : 1251,
     "firstName" : "Anshul",
     "lastName" : "Vyas"
   },
@@ -1449,14 +1457,14 @@ Content-Length: 537
 <div class="content">
 <pre class="highlight nowrap"><code>{
   "message" : {
-    "id" : 820,
+    "id" : 845,
     "sender" : {
-      "id" : 1208,
+      "id" : 1248,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1211,
+      "id" : 1251,
       "firstName" : "Anshul",
       "lastName" : "Vyas"
     },
@@ -1464,13 +1472,13 @@ Content-Length: 537
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/820"
+    "href" : "http://localhost:8080/messages/845"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1208"
+    "href" : "http://localhost:8080/persons/1248"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1211"
+    "href" : "http://localhost:8080/persons/1251"
   } ]
 }</code></pre>
 </div>
@@ -1486,12 +1494,12 @@ Content-Length: 537
     -d '{
   "id" : null,
   "sender" : {
-    "id" : 1208,
+    "id" : 1248,
     "firstName" : "syed",
     "lastName" : "khureshi"
   },
   "receiver" : {
-    "id" : 1211,
+    "id" : 1251,
     "firstName" : "Anshul",
     "lastName" : "Vyas"
   },
@@ -1505,12 +1513,12 @@ Content-Length: 537
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ echo '{
   "id" : null,
   "sender" : {
-    "id" : 1208,
+    "id" : 1248,
     "firstName" : "syed",
     "lastName" : "khureshi"
   },
   "receiver" : {
-    "id" : 1211,
+    "id" : 1251,
     "firstName" : "Anshul",
     "lastName" : "Vyas"
   },
@@ -1530,12 +1538,12 @@ Content-Length: 259
 {
   "id" : null,
   "sender" : {
-    "id" : 1208,
+    "id" : 1248,
     "firstName" : "syed",
     "lastName" : "khureshi"
   },
   "receiver" : {
-    "id" : 1211,
+    "id" : 1251,
     "firstName" : "Anshul",
     "lastName" : "Vyas"
   },
@@ -1552,14 +1560,14 @@ Content-Length: 555
 
 {
   "message" : {
-    "id" : 820,
+    "id" : 845,
     "sender" : {
-      "id" : 1208,
+      "id" : 1248,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1211,
+      "id" : 1251,
       "firstName" : "Anshul",
       "lastName" : "Vyas"
     },
@@ -1567,13 +1575,13 @@ Content-Length: 555
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/820"
+    "href" : "http://localhost:8080/messages/845"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1208"
+    "href" : "http://localhost:8080/persons/1248"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1211"
+    "href" : "http://localhost:8080/persons/1251"
   } ]
 }</code></pre>
 </div>
@@ -1595,14 +1603,14 @@ Content-Length: 555
 <div class="content">
 <pre class="highlight nowrap"><code>[ {
   "message" : {
-    "id" : 821,
+    "id" : 846,
     "sender" : {
-      "id" : 1212,
+      "id" : 1252,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1214,
+      "id" : 1254,
       "firstName" : "Sai",
       "lastName" : "Undurthi"
     },
@@ -1610,24 +1618,24 @@ Content-Length: 555
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/821"
+    "href" : "http://localhost:8080/messages/846"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1212"
+    "href" : "http://localhost:8080/persons/1252"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1214"
+    "href" : "http://localhost:8080/persons/1254"
   } ]
 }, {
   "message" : {
-    "id" : 822,
+    "id" : 847,
     "sender" : {
-      "id" : 1213,
+      "id" : 1253,
       "firstName" : "omer",
       "lastName" : "salar"
     },
     "receiver" : {
-      "id" : 1215,
+      "id" : 1255,
       "firstName" : "Anshul",
       "lastName" : "Vyas"
     },
@@ -1635,13 +1643,13 @@ Content-Length: 555
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/822"
+    "href" : "http://localhost:8080/messages/847"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1213"
+    "href" : "http://localhost:8080/persons/1253"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1215"
+    "href" : "http://localhost:8080/persons/1255"
   } ]
 } ]</code></pre>
 </div>
@@ -1677,14 +1685,14 @@ Content-Length: 1076
 
 [ {
   "message" : {
-    "id" : 821,
+    "id" : 846,
     "sender" : {
-      "id" : 1212,
+      "id" : 1252,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1214,
+      "id" : 1254,
       "firstName" : "Sai",
       "lastName" : "Undurthi"
     },
@@ -1692,24 +1700,24 @@ Content-Length: 1076
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/821"
+    "href" : "http://localhost:8080/messages/846"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1212"
+    "href" : "http://localhost:8080/persons/1252"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1214"
+    "href" : "http://localhost:8080/persons/1254"
   } ]
 }, {
   "message" : {
-    "id" : 822,
+    "id" : 847,
     "sender" : {
-      "id" : 1213,
+      "id" : 1253,
       "firstName" : "omer",
       "lastName" : "salar"
     },
     "receiver" : {
-      "id" : 1215,
+      "id" : 1255,
       "firstName" : "Anshul",
       "lastName" : "Vyas"
     },
@@ -1717,13 +1725,13 @@ Content-Length: 1076
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/822"
+    "href" : "http://localhost:8080/messages/847"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1213"
+    "href" : "http://localhost:8080/persons/1253"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1215"
+    "href" : "http://localhost:8080/persons/1255"
   } ]
 } ]</code></pre>
 </div>
@@ -1767,14 +1775,14 @@ Content-Length: 1076
 <div class="content">
 <pre class="highlight nowrap"><code>[ {
   "message" : {
-    "id" : 816,
+    "id" : 841,
     "sender" : {
-      "id" : 1204,
+      "id" : 1244,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1206,
+      "id" : 1246,
       "firstName" : "Sai",
       "lastName" : "Undurthi"
     },
@@ -1782,13 +1790,13 @@ Content-Length: 1076
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/816"
+    "href" : "http://localhost:8080/messages/841"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1204"
+    "href" : "http://localhost:8080/persons/1244"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1206"
+    "href" : "http://localhost:8080/persons/1246"
   } ]
 } ]</code></pre>
 </div>
@@ -1799,19 +1807,19 @@ Content-Length: 1076
 <div class="listingblock">
 <div class="title">curl</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/messages?senderId=1204' -i</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/messages?senderId=1244' -i</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">HTTPie</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/messages?senderId=1204'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/messages?senderId=1244'</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /messages?senderId=1204 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /messages?senderId=1244 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1824,14 +1832,14 @@ Content-Length: 541
 
 [ {
   "message" : {
-    "id" : 816,
+    "id" : 841,
     "sender" : {
-      "id" : 1204,
+      "id" : 1244,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1206,
+      "id" : 1246,
       "firstName" : "Sai",
       "lastName" : "Undurthi"
     },
@@ -1839,13 +1847,13 @@ Content-Length: 541
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/816"
+    "href" : "http://localhost:8080/messages/841"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1204"
+    "href" : "http://localhost:8080/persons/1244"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1206"
+    "href" : "http://localhost:8080/persons/1246"
   } ]
 } ]</code></pre>
 </div>
@@ -1889,14 +1897,14 @@ Content-Length: 541
 <div class="content">
 <pre class="highlight nowrap"><code>[ {
   "message" : {
-    "id" : 814,
+    "id" : 839,
     "sender" : {
-      "id" : 1200,
+      "id" : 1240,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1202,
+      "id" : 1242,
       "firstName" : "Sai",
       "lastName" : "Undurthi"
     },
@@ -1904,13 +1912,13 @@ Content-Length: 541
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/814"
+    "href" : "http://localhost:8080/messages/839"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1200"
+    "href" : "http://localhost:8080/persons/1240"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1202"
+    "href" : "http://localhost:8080/persons/1242"
   } ]
 } ]</code></pre>
 </div>
@@ -1921,19 +1929,19 @@ Content-Length: 541
 <div class="listingblock">
 <div class="title">curl</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/messages?receiverId=1202' -i</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/messages?receiverId=1242' -i</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">HTTPie</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/messages?receiverId=1202'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/messages?receiverId=1242'</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /messages?receiverId=1202 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /messages?receiverId=1242 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1946,14 +1954,14 @@ Content-Length: 541
 
 [ {
   "message" : {
-    "id" : 814,
+    "id" : 839,
     "sender" : {
-      "id" : 1200,
+      "id" : 1240,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1202,
+      "id" : 1242,
       "firstName" : "Sai",
       "lastName" : "Undurthi"
     },
@@ -1961,13 +1969,13 @@ Content-Length: 541
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/814"
+    "href" : "http://localhost:8080/messages/839"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1200"
+    "href" : "http://localhost:8080/persons/1240"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1202"
+    "href" : "http://localhost:8080/persons/1242"
   } ]
 } ]</code></pre>
 </div>
@@ -2015,14 +2023,14 @@ Content-Length: 541
 <div class="content">
 <pre class="highlight nowrap"><code>[ {
   "message" : {
-    "id" : 808,
+    "id" : 833,
     "sender" : {
-      "id" : 1187,
+      "id" : 1227,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1189,
+      "id" : 1229,
       "firstName" : "Sai",
       "lastName" : "Undurthi"
     },
@@ -2030,13 +2038,13 @@ Content-Length: 541
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/808"
+    "href" : "http://localhost:8080/messages/833"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1187"
+    "href" : "http://localhost:8080/persons/1227"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1189"
+    "href" : "http://localhost:8080/persons/1229"
   } ]
 } ]</code></pre>
 </div>
@@ -2047,19 +2055,19 @@ Content-Length: 541
 <div class="listingblock">
 <div class="title">curl</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/messages?senderId=1187&amp;receiverId=1189' -i</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/messages?senderId=1227&amp;receiverId=1229' -i</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">HTTPie</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/messages?senderId=1187&amp;receiverId=1189'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http GET 'http://localhost:8080/messages?senderId=1227&amp;receiverId=1229'</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /messages?senderId=1187&amp;receiverId=1189 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /messages?senderId=1227&amp;receiverId=1229 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -2072,14 +2080,14 @@ Content-Length: 541
 
 [ {
   "message" : {
-    "id" : 808,
+    "id" : 833,
     "sender" : {
-      "id" : 1187,
+      "id" : 1227,
       "firstName" : "syed",
       "lastName" : "khureshi"
     },
     "receiver" : {
-      "id" : 1189,
+      "id" : 1229,
       "firstName" : "Sai",
       "lastName" : "Undurthi"
     },
@@ -2087,13 +2095,13 @@ Content-Length: 541
   },
   "links" : [ {
     "rel" : "self",
-    "href" : "http://localhost:8080/messages/808"
+    "href" : "http://localhost:8080/messages/833"
   }, {
     "rel" : "sender",
-    "href" : "http://localhost:8080/persons/1187"
+    "href" : "http://localhost:8080/persons/1227"
   }, {
     "rel" : "receiver",
-    "href" : "http://localhost:8080/persons/1189"
+    "href" : "http://localhost:8080/persons/1229"
   } ]
 } ]</code></pre>
 </div>
@@ -2106,7 +2114,7 @@ Content-Length: 541
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-04 18:29:18 PDT
+Last updated 2017-09-04 21:28:46 PDT
 </div>
 </div>
 </body>

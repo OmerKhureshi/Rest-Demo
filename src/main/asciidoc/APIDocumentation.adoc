@@ -4,12 +4,15 @@
 :sectnums:
 :sectnumlevels: 5
 
-= RestDemo - RESTful  messenger web service.
+= API Reference
 
 == Introduction
-This project demonstrates a web service to serve as provider for a basic messenger application. The end points allow GET and POST verbs to manage person and message entities. In addition, helpful queries can also be executed such as listed below.
-1. Get list of messages by specifying sender, receiver or both.
-2. Uses Spring HATEOS to provide useful links to navigate to related resources.
+
+This project demonstrates a RESTful web service that allows managing two entities, a Person entity and a Message entity. A person can be the sender of a message or the receiver. The web service exposes end-points that allow clients to use GET and POST requests to manage these entities. In addition, there are other helpful queries that provide easier access to Person and Message entities such as the those listed below,
+
+1. Get a list of messages by specifying a sender, a receiver or both
+
+2. Get back useful links in the response JSON to navigate to related resources, such as - get a link to the related person resources in the response of the GET /messages request.
 
 //In this project, there are two entities, Person and Message, as described below.
 //=== Person
