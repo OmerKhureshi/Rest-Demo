@@ -8,7 +8,7 @@ This project demonstrates a RESTful web service that allows managing two entitie
     
     or by specifying a receiver, 
     
-    `GET /messages?senderId=:senderId`,
+    `GET /messages?receiverId=:receiverId`,
   
     or by specifying both,
     
